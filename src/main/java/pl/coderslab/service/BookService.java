@@ -1,4 +1,6 @@
-package pl.coderslab;
+package pl.coderslab.service;
+
+import pl.coderslab.entity.Book;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,4 +12,6 @@ public interface BookService {
     void addBook(Book book);
 
     void update(Book book);
+
+    void delete(Long id);
 }

@@ -1,8 +1,10 @@
-package pl.coderslab;
+package pl.coderslab.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import pl.coderslab.service.MockBookService;
+import pl.coderslab.entity.Book;
 
 import java.util.List;
 
@@ -30,13 +32,20 @@ public class BookController {
     public Book bookById(@PathVariable Long id) {
         return bookService.getBook(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found"));
     }
+
     @PostMapping("")
     public void addBook(@RequestBody Book book) {
         bookService.addBook(book);
     }
+
     @PutMapping("")
     public void update(@RequestBody Book book) {
         bookService.update(book);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        bookService.delete(id);
     }
 
 

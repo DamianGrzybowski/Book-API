@@ -1,6 +1,8 @@
-package pl.coderslab;
+package pl.coderslab.service;
 
 import org.springframework.stereotype.Component;
+import pl.coderslab.entity.Book;
+import pl.coderslab.service.BookService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +55,13 @@ public class MockBookService implements BookService {
         if (this.getBook(book.getId()).isPresent()) {
             int index = list.indexOf(this.getBook(book.getId()).get());
             list.set(index, book);
+        }
+    }
+
+    @Override
+    public void delete(Long id) {
+        if (getBook(id).isPresent()) {
+            list.remove(this.getBook(id).get());
         }
     }
 
