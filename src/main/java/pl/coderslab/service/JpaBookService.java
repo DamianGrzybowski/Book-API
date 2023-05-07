@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.entity.Book;
 import pl.coderslab.repository.BookRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;

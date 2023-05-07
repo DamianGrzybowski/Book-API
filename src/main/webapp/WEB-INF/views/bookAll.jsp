@@ -13,7 +13,7 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 50%;
             font-family: Arial, sans-serif;
             font-size: 14px;
             text-align: center;
@@ -71,8 +71,6 @@
         <th>Title</th>
         <th>Author</th>
         <th>Details</th>
-        <th>Action</th>
-        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -81,8 +79,6 @@
             <td>${book.title}</td>
             <td>${book.author}</td>
             <td><a href="/admin/books/details?id=${book.id}" class="btn btn3">Details</a></td>
-            <td><a href="/admin/books/update?id=${book.id}" class="btn btn1">Update</a></td>
-            <td><a href="/admin/books/delete?id=${book.id}" class="btn btn2">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>

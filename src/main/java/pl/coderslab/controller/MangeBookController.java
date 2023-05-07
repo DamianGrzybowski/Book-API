@@ -64,5 +64,12 @@ public class MangeBookController {
         return "redirect:/admin/books";
     }
 
+    @GetMapping("details")
+    public String bookDetailsView(@RequestParam("id") Long id, Model model) {
+        Optional<Book> book = bookService.getBook(id);
+        model.addAttribute("bookDetails", book.orElseThrow(() -> new IllegalArgumentException("Invalid book id: " + id)));
+        return "bookDetails";
+    }
+
 
 }

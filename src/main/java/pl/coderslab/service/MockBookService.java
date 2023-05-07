@@ -2,7 +2,6 @@ package pl.coderslab.service;
 
 import org.springframework.stereotype.Component;
 import pl.coderslab.entity.Book;
-import pl.coderslab.service.BookService;
 
 import java.util.ArrayList;
 import java.util.List;
