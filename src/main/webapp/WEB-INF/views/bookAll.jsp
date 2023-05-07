@@ -37,6 +37,8 @@
     </tbody>
 </table>
 
+<a href="/admin/books/add">Add new book</a>
+
 
 </body>
 </html>

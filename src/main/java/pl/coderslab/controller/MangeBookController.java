@@ -20,7 +20,7 @@ public class MangeBookController {
     public static final String UPDATE_BOOK_FORM = "updateBook-form";
     private final BookService bookService;
 
-    @GetMapping("all")
+    @GetMapping()
     public String showPosts(Model model) {
         List<Book> books = bookService.getBooks();
         model.addAttribute("books", books);
@@ -28,7 +28,7 @@ public class MangeBookController {
     }
 
     @GetMapping("add")
-    public String addNewBook(Model model) {
+    public String addNewBookView(Model model) {
         model.addAttribute("book", new Book());
         return ADD_BOOK_FORM;
     }
@@ -43,7 +43,7 @@ public class MangeBookController {
     }
 
     @GetMapping("update")
-    public String updateBook(@RequestParam("id") Long id, Model model) {
+    public String updateBookView(@RequestParam("id") Long id, Model model) {
         Optional<Book> book = bookService.getBook(id);
         model.addAttribute("bookToUpdate", book.orElseThrow(() -> new IllegalArgumentException("Invalid book id: " + id)));
         return UPDATE_BOOK_FORM;
@@ -55,6 +55,12 @@ public class MangeBookController {
             return UPDATE_BOOK_FORM;
         }
         bookService.update(book);
+        return "redirect:/admin/books";
+    }
+
+    @GetMapping("delete")
+    public String deleteBookView(@RequestParam("id") Long id) {
+        bookService.delete(id);
         return "redirect:/admin/books";
     }
 
