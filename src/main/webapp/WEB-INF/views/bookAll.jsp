@@ -10,6 +10,59 @@
 <html>
 <head>
     <title>All books</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+
+        .btn1:hover {
+            background-color: cornflowerblue;
+        }
+
+        .btn2:hover {
+            background-color: firebrick;
+        }
+
+        .btn3:hover {
+            background-color: lightcoral;
+        }
+    </style>
 </head>
 <body>
 <table>
@@ -17,9 +70,9 @@
     <tr>
         <th>Title</th>
         <th>Author</th>
-        <th>Publisher</th>
-        <th>Type</th>
-        <th>ISBN</th>
+        <th>Details</th>
+        <th>Action</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -27,17 +80,15 @@
         <tr>
             <td>${book.title}</td>
             <td>${book.author}</td>
-            <td>${book.publisher}</td>
-            <td>${book.type}</td>
-            <td>${book.isbn}</td>
-            <td><a href="/admin/books/update?id=${book.id}">Update</a></td>
-            <td><a href="/admin/books/delete?id=${book.id}">Delete</a></td>
+            <td><a href="/admin/books/details?id=${book.id}" class="btn btn3">Details</a></td>
+            <td><a href="/admin/books/update?id=${book.id}" class="btn btn1">Update</a></td>
+            <td><a href="/admin/books/delete?id=${book.id}" class="btn btn2">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-<a href="/admin/books/add">Add new book</a>
+<a href="/admin/books/add" class="btn">Add new book</a>
 
 
 </body>
